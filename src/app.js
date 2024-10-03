@@ -4,6 +4,7 @@ import bookRouter from '../src/routes/books.route.js'
 import userRouter from '../src/routes/user.route.js'
 import transactionRouter from '../src/routes/transaction.route.js'
 
+
 const app = express() 
 
 app.use(cors({
@@ -12,12 +13,15 @@ app.use(cors({
 }
 ))
 
+app.set('view engine','ejs');
+
+
 app.use(express.json({limit:"16kb"}))
 app.use(express.urlencoded({extended:true,limit:"16kb"}))
 app.use(express.static("public"))
 
 app.get("/",(req , res)=>{
-    res.render('./public/index.html')
+    res.render('./views/index')
 })
 
 app.use("/api/user",userRouter)
