@@ -13,15 +13,12 @@ app.use(cors({
 }
 ))
 
-app.set('view engine','ejs');
-
-
 app.use(express.json({limit:"16kb"}))
 app.use(express.urlencoded({extended:true,limit:"16kb"}))
 app.use(express.static("public"))
 
 app.get("/",(req , res)=>{
-    res.render('./views/index')
+    res.send("send the data in raw json format for the post request .")
 })
 
 app.use("/api/user",userRouter)
