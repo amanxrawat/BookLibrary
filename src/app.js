@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended:true,limit:"16kb"}))
 app.use(express.static("public"))
 
 app.get("/",(req , res)=>{
-    res.send("Nice , just to check ")
+    res.render('./public/index.html')
 })
 
 app.use("/api/user",userRouter)
